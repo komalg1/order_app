@@ -13,6 +13,7 @@ For deployment to Azure
 - CI/CD pipeline can also be setup to to deploy the app service when changes are made to the repository.
 
 Enhancements that can be done
+- Unit testing of the app
 - Front end can be setup
 - The application can be linked to a database eg. PostGreSQL, SQL Server etc.
 - Recommendation system can be built in
