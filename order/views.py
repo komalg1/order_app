@@ -1,7 +1,6 @@
 import json
-from multiprocessing import context
 from django.http import JsonResponse
-from django.shortcuts import get_object_or_404, redirect, render
+from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from order.models import Customer, Order, OrderItems, Product
@@ -64,14 +63,15 @@ def addItem(request):
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
     orderItem, created = OrderItems.objects.get_or_create(order=order, product=product)
     
-    orderItem.quantity_in_stock = (orderItem.quantity_in_stock - 1)
-    
+    product.quantity_in_stock = (product.quantity_in_stock - 1)
+    product.save()
     orderItem.save()
     
     if orderItem.quantity_in_stock <= 0:
         orderItem.delete()
     return JsonResponse('Item was added', safe=False)
 
+## initial setup for items in cart for a logged in user
 def cartData(request):
     if request.user.is_authenticated:
         customer = request.user.customer

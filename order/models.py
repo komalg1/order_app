@@ -39,7 +39,8 @@ class Order(models.Model):
 class Product(models.Model):
    name = models.CharField(max_length=100)
    price = models.FloatField()
-   
+   quantity_in_stock = models.IntegerField(default=0)
+
    def __str__(self):
        return self.name
 
@@ -47,7 +48,6 @@ class Product(models.Model):
 class OrderItems(models.Model):
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True)
-    quantity_in_stock = models.IntegerField(default=0)
-
+    
     def __str__(self):
         return self.name
