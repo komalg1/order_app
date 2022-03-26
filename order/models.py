@@ -43,6 +43,7 @@ class Product(models.Model):
 
    def __str__(self):
        return self.name
+    
 
 ##Combination of the Product & the Order ordered by the Customer
 class OrderItems(models.Model):
