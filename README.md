@@ -14,7 +14,7 @@ For deployment to Azure
 
 Enhancements that can be done
 - Unit testing of the app
-- Separating different models & their views
+- Separating into individual components (products, customers, orders)
 - Front end can be setup
 - The application can be linked to a database eg. PostGreSQL, SQL Server etc.
 - Recommendation system can be built in
