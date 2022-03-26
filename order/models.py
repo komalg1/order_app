@@ -37,11 +37,11 @@ class Order(models.Model):
 
 ##Data of an individual product
 class Product(models.Model):
-   name = models.CharField(max_length=100)
-   price = models.FloatField()
-   quantity_in_stock = models.IntegerField(default=0)
+    name = models.CharField(max_length=100)
+    price = models.FloatField()
+    quantity_in_stock = models.IntegerField(default=0)
 
-   def __str__(self):
+    def __str__(self):
        return self.name
     
 
