@@ -53,7 +53,7 @@ def register(request):
 @login_required
 def addItem(request):
     data = json.loads(request.body)
-    itemid = data['itemID']
+    itemid = data['id']
     
     customer = request.user.customer
     product = Product.objects.get(id=itemid)
